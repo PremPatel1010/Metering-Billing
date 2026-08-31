@@ -1,0 +1,27 @@
+{
+  "name": "metering-billing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PremPatel1010/Metering-Billing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/PremPatel1010/Metering-Billing/issues"
+  },
+  "homepage": "https://github.com/PremPatel1010/Metering-Billing#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "morgan": "^1.12.0",
+    "pg": "^8.23.0"
+  }
+}
