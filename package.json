@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "setup-db": "node seed.js",
+    "test": "node test.mjs && node test-webhook.mjs"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "morgan": "^1.12.0",
-    "pg": "^8.23.0"
+    "pg": "^8.23.0",
+    "stripe": "^22.6.2"
   }
 }

@@ -1,5 +1,13 @@
 import pool from "../db/db.js";
 
+export const findUsageByIdempotencyKey = async (idempotencyKey) => {
+  const result = await pool.query(
+    `SELECT * FROM usage_events WHERE idempotency_key = $1`,
+    [idempotencyKey],
+  );
+  return result.rows[0] || null;
+};
+
 export const recordUsage = async (
   tenantId,
   type,
@@ -17,11 +25,13 @@ export const recordUsage = async (
     return { isDuplicate: false, event: result.rows[0] };
   } catch (error) {
     if (error.code === '23505') {
-      const text = `SELECT * FROM usage_events WHERE idempotency_key = $1`;
-      const res = await pool.query(text, [idempotencyKey]);
+      const res = await pool.query(
+        `SELECT * FROM usage_events WHERE idempotency_key = $1`,
+        [idempotencyKey],
+      );
       return { isDuplicate: true, event: res.rows[0] };
     } else {
-      throw error; 
+      throw error;
     }
   }
 };

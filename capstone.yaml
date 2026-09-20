@@ -1,0 +1,9 @@
+run: npm start
+seed: npm run setup-db
+test: npm test
+base_url: http://localhost:3000
+endpoints:
+  - POST /generate
+  - GET /usage/:tenantId
+  - POST /checkout
+  - POST /webhooks/stripe
